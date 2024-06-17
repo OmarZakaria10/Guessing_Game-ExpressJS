@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="scoreboard.css" />
+    <title>Scoreboard</title>
+</head>
+
+<body>
+    <nav class="navbar">
+        <li class="navbarItems">
+            <ul>
+                <a class="game" href="/game">Game</a>
+            </ul>
+            <ul>
+                <a class="scoreboard" href="/scoreboard">Scoreboard</a>
+            </ul>
+        </li>
+    </nav>
+    <header>
+        <h1>Top 5 Players</h1>
+    </header>
+    <main>
+        <table id="scoreTable">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Score</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Table body will be filled dynamically -->
+            </tbody>
+        </table>
+    </main>
+    <script src="scoreboard.js"></script>
+</body>
+
+</html>
