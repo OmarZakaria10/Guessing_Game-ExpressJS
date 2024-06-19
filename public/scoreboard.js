@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Fetch the top 5 scores from the server
     fetch('/top-scores', {
-        method: 'POST'
+        method: 'GET'
     })
     .then(response => {
         if (!response.ok) {

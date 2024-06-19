@@ -31,7 +31,7 @@ router.get('/scoreboard', (req, res, next) => {
     res.sendFile(path.join(rootDir, 'views', 'scoreboard.html'))
 });
 
-router.post('/top-scores', (req, res, next) => {
+router.get('/top-scores', (req, res, next) => {
     const topScores = scores.slice(0, 5);
     res.status(200).json(topScores);
 });
