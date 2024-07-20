@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - 'app.js'
+      - 'dockerfile'
       - 'src/**'
       - 'public/**'
       - 'routes/**'
