@@ -4,8 +4,6 @@ const express =require ('express');
 
 const bodyParser =require('body-parser');
 
-
-
 const gameRoutes=require('./routes/game');
 
 const app =express();
