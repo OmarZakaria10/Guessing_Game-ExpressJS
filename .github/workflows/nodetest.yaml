@@ -11,7 +11,7 @@ on:
       - 'public/**'
       - 'routes/**'
       - 'views/**'
-      - '.github/workflows/nodetest.yml'
+      - '.github/**'
 
 jobs:
   test:
