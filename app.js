@@ -17,5 +17,4 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(gameRoutes);
 
 
-
 app.listen(3000);
