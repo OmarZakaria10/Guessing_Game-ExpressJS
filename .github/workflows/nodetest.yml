@@ -1,17 +1,21 @@
-name: CI/CD Pipeline
+name: Dockerizing and pushing app
 
 on:
   push:
     branches:
       - main
+    tags:
+      - "v*"
     paths:
-      - 'app.js'
-      - 'dockerfile'
-      - 'src/**'
-      - 'public/**'
-      - 'routes/**'
-      - 'views/**'
-      - '.github/workflows/nodetest.yml'
+      - "app.js"
+      - "dockerfile"
+      - "src/**"
+      - "public/**"
+      - "routes/**"
+      - "views/**"
+      - ".github/workflows/nodetest.yml"
+      - "controllers/**"
+      - "models/**"
 
 jobs:
   test:
@@ -20,12 +24,12 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-        
+
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'  # Specify the Node.js version you want to use
-      
+          node-version: "20" # Specify the Node.js version you want to use
+
       - name: Install dependencies
         run: npm ci
 
@@ -51,6 +55,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: |
-            omarzakaria10/guessing_game:latest
-            omarzakaria10/guessing_game:${{ github.ref_name }}
+          tags: omarzakaria10/guessing_game:latest
