@@ -64,15 +64,16 @@ If you have docker installed on your machine you can download image
     Open your terminal and run the following command to pull the image:
 
     ```bash
-    docker pull omarzakaria10/guessing_game:V1.0.0
+    docker pull omarzakaria10/guessing_game:latest
     ```
 2. **Run the Docker Container**
 
     Open your terminal and run the following command to Run the Docker Container:
 
     ```bash
-    docker run -it -p 3000:3000 omarzakaria10/guessing_game:V1.0.0
+    docker run -it -p 3000:3000 omarzakaria10/guessing_game:latest
     ```
+    You must use config.env file to connect the project to MongoDB
 3. **Run the game**
     
     now open you browser and type 
