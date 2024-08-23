@@ -55,7 +55,7 @@
 
     - name: Run Docker container
       docker_container:
-        name: your_container_name
+        name: guessing_game
         image: omarzakaria10/guessing_game:latest
         state: started
         restart_policy: always
