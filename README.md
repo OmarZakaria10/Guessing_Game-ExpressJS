@@ -1,7 +1,8 @@
 # Guess The Number
 
 [![Dockerizing and Pushing App](https://github.com/OmarZakaria10/Guessing_Game-ExpressJS/actions/workflows/nodetest.yml/badge.svg)](https://github.com/OmarZakaria10/Guessing_Game-ExpressJS/actions/workflows/nodetest.yml)
-it's game to guess number from 1 to 20 with scoreboard globally for all players
+
+#### it's game to guess number from 1 to 20 with scoreboard globally for all players
 
 ## Getting Started
 
