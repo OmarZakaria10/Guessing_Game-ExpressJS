@@ -73,12 +73,39 @@ If you have docker installed on your machine you can download image
     ```bash
     docker run -it -p 3000:3000 omarzakaria10/guessing_game:latest
     ```
-    You must use config.env file to connect the project to MongoDB
 3. **Run the game**
     
     now open you browser and type 
     ```url
     http://localhost:3000/
     ```
+## Deploying on AWS with Terraform and Ansible
+Automate deployment on AWS, install Docker, and run the application using Terraform and Ansible.
+### Step 1: Terraform 
 
+Terraform configuration files are included to create three instances in the AWS us-east-1 region and a security group to allow SSH access.
 
+To deploy with Terraform:
+
+```bash
+terraform init
+terraform apply
+```
+
+### Step 2: Ansible
+Use the provided Ansible playbook to connect to the instances, update the system, install Docker, and run the application.
+
+To run Ansible against hosts:
+
+#### 1. Prepare Ansible Inventory:
+
+Add the public IPs of your AWS instances and the path to your private key in the hosts.ini file.
+#### 2. Run the Ansible Playbook:
+
+Navigate to the Ansible directory and execute the playbook:
+```bash
+cd ansible/
+ansible-playbook -i hosts.ini main.yaml
+```
+#### 3. Access the Game:
+Open your browser and go to http://<instance-ip>to play the game.
