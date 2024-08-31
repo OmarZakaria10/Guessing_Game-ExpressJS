@@ -108,4 +108,4 @@ cd ansible/
 ansible-playbook -i hosts.ini main.yaml
 ```
 #### 3. Access the Game:
-Open your browser and go to http://<instance-ip>to play the game.
+Open your browser and go to `http://<instance-ip>` to play the game.
