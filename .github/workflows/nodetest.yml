@@ -1,4 +1,4 @@
-name: Dockerizing and pushing app
+name: Dockerizing and Pushing App
 
 on:
   push:
@@ -15,7 +15,6 @@ on:
       - "routes/**"
       - "views/**"
       - ".github/workflows/nodetest.yml"
-      - "controllers/**"
       - "models/**"
 
 jobs:
@@ -51,9 +50,15 @@ jobs:
           username: omarzakaria10
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
+      - name: Extract GitHub Tag
+        id: extract_tag
+        run: echo "TAG=${GITHUB_REF#refs/tags/}" >> $GITHUB_ENV
+
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
         with:
           context: .
           push: true
-          tags: omarzakaria10/guessing_game:latest
+          tags: |
+            omarzakaria10/guessing_game:latest
+            omarzakaria10/guessing_game:${{ env.TAG }}
