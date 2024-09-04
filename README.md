@@ -52,9 +52,9 @@ Make sure you have the following software installed on your machine:
 
 ## Usage
 
-- the server uses port 3000
-- to use the app in same machine you have installed the app on click [local](http://localhost:3000/)
-- if you are group and want to compete with each other open your browser and write `ip of machine with app installed on`:3000/
+- the server uses port 8080
+- to use the app in same machine you have installed the app on click [local](http://localhost:8080/)
+- if you are group and want to compete with each other open your browser and write `ip of machine with app installed on`:8080/
 - click in scoreboad on navbar to see best 5 scores
 
 
@@ -73,13 +73,13 @@ If you have docker installed on your machine you can download image
     Open your terminal and run the following command to Run the Docker Container:
 
     ```bash
-    docker run -it -p 3000:3000 omarzakaria10/guessing_game:latest
+    docker run -it -p 8080:8080 omarzakaria10/guessing_game:latest
     ```
 3. **Run the game**
     
     now open you browser and type 
     ```url
-    http://localhost:3000/
+    http://localhost:8080/
     ```
 ## Deploying on AWS with Terraform and Ansible
 Automate deployment on AWS, install Docker, and run the application using Terraform and Ansible.

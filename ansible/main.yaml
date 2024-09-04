@@ -60,6 +60,6 @@
         state: started
         restart_policy: always
         ports:
-          - "80:3000" # Adjust ports as needed
+          - "80:8080" # Adjust ports as needed
         env_file: /home/config.env
 
