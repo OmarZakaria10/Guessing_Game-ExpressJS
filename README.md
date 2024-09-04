@@ -2,7 +2,7 @@
 
 [![Dockerizing and Pushing App](https://github.com/OmarZakaria10/Guessing_Game-ExpressJS/actions/workflows/nodetest.yml/badge.svg)](https://github.com/OmarZakaria10/Guessing_Game-ExpressJS/actions/workflows/nodetest.yml)
 
-#### it's game to guess number from 1 to 20 with scoreboard globally for all players
+#### This project is a number-guessing game built with Node.js, where players try to guess a number between 1 and 20. It includes a global scoreboard for all players, powered by a MongoDB database. The game is specifically designed to practice various DevOps tools and techniques, such as GitHub Actions for CI/CD, Terraform for infrastructure management, and Ansible for configuration automation.
 
 ## Getting Started
 
