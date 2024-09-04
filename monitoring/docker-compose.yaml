@@ -15,7 +15,7 @@ services:
     image: omarzakaria10/guessing_game:latest
     container_name: app
     ports:
-      - "8080:3000"
+      - "8080:8080"
     env_file:
       - /media/omar/01DADC72FB780420/Projects/Guessing_Game-ExpressJS/config.env
 
@@ -34,7 +34,7 @@ services:
     image: grafana/promtail:latest
     container_name: promtail
     volumes:
-      - /var/lib/docker/containers:/var/lib/docker/containers  # Needed for container logs
+      - /var/lib/docker/containers:/var/lib/docker/containers # Needed for container logs
       - /var/log:/var/log
       - ./config:/mnt/config
     command: -config.file=/mnt/config/promtail-config.yaml
