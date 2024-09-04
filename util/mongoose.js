@@ -27,10 +27,8 @@ try {
 
   console.log("Pinged your deployment. You successfully connected to MongoDB!");
   var Score = mongoose.model("scores", scoresSchema);
-
 } catch (err) {
   console.error(err);
 }
+
 module.exports = Score;
-
-
