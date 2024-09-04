@@ -26,4 +26,4 @@ app.get("/metrics", metricsEndpoint);
 
 app.use(gameRoutes);
 
-app.listen(3000);
+app.listen(8080);
