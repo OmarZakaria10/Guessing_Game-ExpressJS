@@ -17,7 +17,7 @@ services:
     ports:
       - "8080:8080"
     env_file:
-      - /media/omar/01DADC72FB780420/Projects/Guessing_Game-ExpressJS/config.env
+      - ../config.env
 
   loki:
     <<: *common

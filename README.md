@@ -167,3 +167,23 @@ sudo nano /etc/hosts
 ### Step 6: Test the Ingress
 Now you can access your application using the custom domain name:
 ##### Open your web browser and go to: http://myapp.local
+
+
+## Kubernetes Deployment with Helm:
+- Make sure You have Helm installed
+
+- Navigate to the kubernetes/ directory where your Helm chart is located and install the chart:
+
+```bash
+cd /kubernetes
+helm install myapp ./app-chart
+```
+#### Find your Minikube IP address:
+
+```bash
+minikube ip
+```
+##### Test application
+
+`http://<minikube-ip>:30080`
+
