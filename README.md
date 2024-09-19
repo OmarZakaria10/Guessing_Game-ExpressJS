@@ -111,3 +111,59 @@ ansible-playbook -i hosts.ini main.yaml
 ```
 #### 3. Access the Game:
 Open your browser and go to `http://<instance-ip>` to play the game.
+
+## Kubernetes Deployment with Minikube
+Deploy the Guessing Game application using Kubernetes on Minikube.
+
+#### Step 1: Start Minikube
+Start the Minikube cluster:
+
+```bash
+minikube start
+```
+#### Step 2: Create a ConfigMap
+Create a ConfigMap from an environment file to provide environment variables for the application:
+
+```bash
+kubectl create configmap myapp-env --from-env-file=../config.env -n myapp-namespace
+```
+
+#### Step 3: Create namespace and Deploy the Application
+Create a Kubernetes namespace for the application and Apply the deployment configuration to create the application's deployment and Ingress:
+
+```bash
+cd kubernetes/
+kubectl apply -f namespace.yaml 
+kubectl apply -f deployment.yaml 
+kubectl apply -f service.yaml 
+kubectl apply -f ingress.yaml
+```
+
+#### Step 4: Enable the Ingress Controller in Minikube
+
+```bash
+minikube addons enable ingress
+```
+
+#### Step 5: Update Your `/etc/hosts` File
+To access your app using the custom domain (myapp.local), you need to add an entry in your local /etc/hosts file to point myapp.local to your Minikube IP address.
+
+##### 1. Find your Minikube IP address:
+```bash
+minikube ip
+```
+##### 2. Edit the `/etc/hosts` file with a text editor (requires sudo permissions):
+```bash
+sudo nano /etc/hosts
+```
+##### 3. Add the following line to the file, replacing <minikube-ip> with your Minikube IP address:
+
+```bash
+<minikube-ip> myapp.local
+```
+
+##### 4. Save and close the file.
+
+### Step 6: Test the Ingress
+Now you can access your application using the custom domain name:
+##### Open your web browser and go to: http://myapp.local

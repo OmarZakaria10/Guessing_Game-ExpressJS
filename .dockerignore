@@ -1,5 +1,6 @@
 /node_modules
 /config.env
+kubernetes/app-chart/config.env
 # Local .terraform directories
 **/.terraform/*
 

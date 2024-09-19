@@ -1,0 +1,28 @@
+# values.yaml (this should remain in your values.yaml file)
+namespace: myapp-namespace
+
+image:
+  repository: omarzakaria10/guessing_game
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  type: NodePort
+  port: 8080
+  nodePort: 30080
+
+resources:
+  limits:
+    memory: "128Mi"
+    cpu: "500m"
+
+ingress:
+  enabled: true
+  host: myapp.local
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+
+secret:
+  config:
+    enabled: true
+    name: my-secret
