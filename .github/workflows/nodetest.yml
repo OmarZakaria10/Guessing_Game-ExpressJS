@@ -1,0 +1,67 @@
+name: Dockerizing and Pushing App
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - "v*"
+    paths:
+      - "app.js"
+      - "dockerfile"
+      - "src/**"
+      - "controllers/**"
+      - "public/**"
+      - "routes/**"
+      - "util/**"
+      - "views/**"
+      - ".github/workflows/nodetest.yml"
+      - "models/**"
+      - "app.test.js"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install dependencies
+        run: npm ci
+
+  build_and_push_docker:
+    runs-on: ubuntu-latest
+    needs: test
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: omarzakaria10
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+
+      - name: Extract GitHub Tag
+        id: extract_tag
+        if: startsWith(github.ref, 'refs/tags/')
+        run: echo "TAG=${GITHUB_REF#refs/tags/}" >> $GITHUB_ENV
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          tags: |
+            omarzakaria10/guessing_game:latest
+            omarzakaria10/guessing_game:${{ env.TAG || 'latest' }}

@@ -27,3 +27,5 @@ app.get("/metrics", metricsEndpoint);
 app.use(gameRoutes);
 
 app.listen(8080);
+
+module.exports = app;
