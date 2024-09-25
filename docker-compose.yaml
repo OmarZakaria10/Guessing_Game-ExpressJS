@@ -2,9 +2,7 @@ version: "3.8"
 
 services:
   app:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: omarzakaria10/guessing_game:latest
     container_name: node_app
     restart: always
     environment:
