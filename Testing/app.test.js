@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const request = require("supertest");
-const app = require("./app"); // Import the Express app
-const Score = require("./util/mongoose"); // Correctly import only the Score model
+const app = require("../app"); // Import the Express app
+const Score = require("../util/mongoose"); // Correctly import only the Score model
 require("dotenv").config();
 // Connect to MongoDB before running tests
 beforeAll(async () => {
