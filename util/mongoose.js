@@ -1,14 +1,15 @@
 const mongoose = require("mongoose");
 
-if (process.env.NODE_ENV !== "production") {
-  const dotenv = require("dotenv");
-  dotenv.config({ path: "./config.env" });
-}
+// if (process.env.NODE_ENV !== "production") {
+//   const dotenv = require("dotenv");
+//   dotenv.config({ path: "./config.env" });
+// }
 
-const uri = process.env.DATABASE.replace(
-  "<password>",
-  process.env.DATABASE_PASSWORD
-);
+const uri = process.env.NODE_ENV !== "production"
+  ? "mongodb://localhost:27017/game_scores"
+  : process.env.DATABASE;
+
+  
 const clientOptions = {
   serverApi: { version: "1", strict: true, deprecationErrors: true },
 };

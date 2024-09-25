@@ -2,16 +2,17 @@ const mongoose = require("mongoose");
 const request = require("supertest");
 const app = require("./app"); // Import the Express app
 const Score = require("./util/mongoose"); // Correctly import only the Score model
-
 require("dotenv").config();
-
 // Connect to MongoDB before running tests
 beforeAll(async () => {
   if (mongoose.connection.readyState === 0) {
-    await mongoose.connect(process.env.DATABASE.replace("<password>", process.env.DATABASE_PASSWORD), {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
+    await mongoose.connect(
+      process.env.DATABASE.replace("<password>", process.env.DATABASE_PASSWORD),
+      {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+      }
+    );
   }
 });
 
