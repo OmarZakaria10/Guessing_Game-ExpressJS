@@ -29,20 +29,20 @@ jobs:
         ports:
           - 27017:27017
         options: >
-          --health-cmd="echo 'db.runCommand({ping: 1})' | mongo"
-          --health-interval=10s
-          --health-timeout=5s
-          --health-retries=5
+          --health-cmd "echo 'db.runCommand({ping: 1})' | mongo"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
 
       app:
         image: omarzakaria10/guessing_game:latest
         ports:
           - 8080:8080
         options: >
-          --health-cmd="curl --fail http://localhost:8080 || exit 1"
-          --health-interval=10s
-          --health-timeout=5s
-          --health-retries=5
+          --health-cmd "curl --fail http://localhost:8080 || exit 1"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
 
     steps:
       - name: Checkout code
