@@ -40,7 +40,7 @@ jobs:
       - name: Run Docker Compose for Testing
         working-directory: ./testing # Specify the testing directory
         run: |
-          docker-compose up --build  # Start the testing services
+          docker-compose up --build --exit-code-from app app  # Start the testing services
           # docker-compose exec app npm test  # Run tests inside the app container
           docker-compose down  # Tear down the containers after testing
 
