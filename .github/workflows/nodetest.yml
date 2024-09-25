@@ -32,7 +32,7 @@ jobs:
         uses: docker/setup-buildx-action@v3
 
       - name: Run Docker Compose for Testing
-        working-directory: /testing # Specify the testing directory
+        working-directory: ./testing # Specify the testing directory
         run: |
           docker-compose up --build  # Start the testing services
           # docker-compose exec app npm test  # Run tests inside the app container
