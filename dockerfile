@@ -6,7 +6,7 @@ ENV NODE_ENV="production"
 
 COPY . .
 
-RUN npm ci && addgroup -S app && adduser -S app -G app && chown -R app:app .
+RUN npm ci --include=dev && addgroup -S app && adduser -S app -G app && chown -R app:app .
 
 USER app
 

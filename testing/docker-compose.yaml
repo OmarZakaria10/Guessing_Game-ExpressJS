@@ -4,7 +4,7 @@ services:
   app:
     image: omarzakaria10/guessing_game:latest
     container_name: node_app
-    restart: always
+    # restart: always
     environment:
       - NODE_ENV=production
       - DATABASE=mongodb://mongodb:27017/game_scores
@@ -14,7 +14,7 @@ services:
       - mongodb
     networks:
       - app_network
-    command: npm test # Override the default command to run tests
+    command: ["npm", "test"]
 
   mongodb:
     image: mongo:latest
@@ -23,18 +23,6 @@ services:
       - mongo_data:/data/db
     ports:
       - "27017:27017"
-    networks:
-      - app_network
-
-  nginx:
-    image: nginx:latest
-    container_name: nginx
-    ports:
-      - "80:80"
-    volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf
-    depends_on:
-      - app
     networks:
       - app_network
 
