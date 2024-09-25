@@ -5,7 +5,7 @@ exports.updateScore = async (req, res, next) => {
     const { playerName, score } = req.body;
     const currentTime = new Date().toLocaleTimeString();
     const Player = new Score({
-      name: playerName | "No name",
+      name: playerName || "No name",
       score: score,
       date: new Date(),
     });
