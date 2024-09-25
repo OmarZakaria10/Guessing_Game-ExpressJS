@@ -3,7 +3,7 @@ version: "3.8"
 services:
   app:
     build:
-      context: .  # This specifies the current directory as the build context (where Dockerfile is located)
+      context: .. # This specifies the current directory as the build context (where Dockerfile is located)
       dockerfile: Dockerfile
     container_name: node_app
     # restart: always
