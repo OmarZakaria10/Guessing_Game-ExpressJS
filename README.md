@@ -60,26 +60,22 @@ Make sure you have the following software installed on your machine:
 
 ## Docker 
 
-If you have docker installed on your machine you can download image
+If you have docker and docker compose installed on your machine you can download image
 1. **Pull the Image from docker hub**
 
-    Open your terminal and run the following command to pull the image:
+    Open your terminal and run the following commands :
 
     ```bash
-    docker pull omarzakaria10/guessing_game:latest
+    docker compose up
     ```
-2. **Run the Docker Container**
+but make sure that ports in `docker-compose.yaml` are available
 
-    Open your terminal and run the following command to Run the Docker Container:
-
-    ```bash
-    docker run -it -p 8080:8080 omarzakaria10/guessing_game:latest
-    ```
-3. **Run the game**
+2. **Run the game**
     
     now open you browser and type 
+    
     ```url
-    http://localhost:8080/
+    http://localhost or http://<your-server-ip>
     ```
 ## Deploying on AWS with Terraform and Ansible
 Automate deployment on AWS, install Docker, and run the application using Terraform and Ansible.
